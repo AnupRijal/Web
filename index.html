@@ -365,5 +365,32 @@ let an,sn;if(Math.abs(i)<1e-12){an=n;sn=n}else{const v=1/(1+i);an=(1-Math.pow(v,
 pvi.textContent=fmt.format(P*an);pvd.textContent=fmt.format(P*an*(1+i));av.textContent=fmt.format(P*sn)}
 ['pmt','rate','n'].forEach(d=>document.getElementById(d).addEventListener('input',calc));calc();
 </script>
+
+<div class="strip strip-l" aria-hidden="true"><div class="track">
+  <span>The clock started late. The interest is compounding now. <i>&middot;</i> The clock started late. The interest is compounding now. <i>&middot;</i> </span>
+  <span>The clock started late. The interest is compounding now. <i>&middot;</i> The clock started late. The interest is compounding now. <i>&middot;</i> </span>
+</div></div>
+<div class="strip strip-r" aria-hidden="true"><div class="track">
+  <span><b>My actuarial journey</b> &rarr; Exam P passed, Sep 2026 &rarr; AIG actuarial simulation, Oct 2026 &rarr; Exam FM, Dec 2026 &rarr; Graduating, Dec 2026 &rarr; <b>Next: an actuarial team</b> <i>&middot;</i> </span>
+  <span><b>My actuarial journey</b> &rarr; Exam P passed, Sep 2026 &rarr; AIG actuarial simulation, Oct 2026 &rarr; Exam FM, Dec 2026 &rarr; Graduating, Dec 2026 &rarr; <b>Next: an actuarial team</b> <i>&middot;</i> </span>
+</div></div>
+<style>
+.strip{position:fixed;top:0;height:100vh;width:48px;overflow:hidden;display:none;pointer-events:none;z-index:0;
+  -webkit-mask-image:linear-gradient(transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(transparent,#000 12%,#000 88%,transparent)}
+.page{position:relative;z-index:1}
+.strip .track{display:flex;flex-direction:column;animation:roll 70s linear infinite}
+.strip span{writing-mode:vertical-rl;white-space:nowrap;padding-bottom:28px}
+.strip i{font-style:normal;padding:0 14px;color:var(--red)}
+.strip-l{left:calc((100vw - 860px) / 4 - 24px);transform:rotate(180deg)}
+.strip-l span{font-family:var(--hand);font-size:30px;color:var(--accent);line-height:48px}
+.strip-r{right:calc((100vw - 860px) / 4 - 24px)}
+.strip-r .track{animation-duration:80s}
+.strip-r span{font-family:var(--mono);font-size:13.5px;letter-spacing:.04em;color:var(--ink);line-height:48px}
+.strip-r b{color:var(--accent)}
+@keyframes roll{from{transform:translateY(0)}to{transform:translateY(-50%)}}
+@media (min-width:1080px){.strip{display:block}}
+@media (prefers-reduced-motion:reduce){.strip .track{animation:none}}
+</style>
+
 </body>
 </html>
