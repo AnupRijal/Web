@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Anup Rijal · Actuarial Candidate</title>
+<meta name="description" content="Anup Rijal. CS and Data Science student moving into actuarial work. SOA Exam P passed, Exam FM in December 2026.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,600;1,400&family=Space+Mono:wght@400;700&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:18px;line-height:1.6}
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px}
+a:hover{text-decoration-thickness:2px}
+p{margin:0 0 14px}
+h1,h2,h3,h4{margin:0}
+.kicker{margin:0 0 10px}
+.tagline{margin:0}
+.links{display:flex;flex-wrap:wrap;gap:6px 18px}
+.stat b,.stat span{display:block}
+section{scroll-margin-top:20px}
+h2{display:flex;gap:12px;align-items:baseline}
+.lead p:first-of-type{font-size:1.15em;line-height:1.5}
+
+/* timeline */
+.tl{--w:78px;position:relative;margin:0;padding:0;list-style:none}
+.tl::before{content:"";position:absolute;left:calc(var(--w) + 14px);top:8px;bottom:8px;width:2px;background:var(--line)}
+.tl li{position:relative;display:grid;grid-template-columns:var(--w) 1fr;gap:34px;padding:7px 0;font-size:16.5px;line-height:1.45}
+.tl time{font-family:var(--mono);font-size:12.5px;color:var(--soft);text-align:right;padding-top:2px;white-space:nowrap}
+.tl li::after{content:"";position:absolute;left:calc(var(--w) + 9px);top:15px;width:12px;height:2px;background:var(--line)}
+.tl li.big::after,.tl li.next::after{left:calc(var(--w) + 8px);top:9px;width:14px;height:14px;border-radius:50%;background:var(--bg2,var(--bg))}
+.tl li.big::after{border:2.5px solid var(--accent)}
+.tl li.next::after{border:2px dashed var(--soft)}
+.tl small{display:block;color:var(--soft);font-size:14.5px}
+
+/* table */
+table{width:100%;border-collapse:collapse;font-size:16px}
+th,td{text-align:left;padding:10px 12px 10px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font-family:var(--mono);font-weight:500;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--soft);border-bottom:1.5px solid var(--ink)}
+td.m{font-family:var(--mono);font-size:14px;white-space:nowrap}
+.ok{color:var(--pass);font-weight:600}
+.up{color:var(--accent);font-weight:600}
+.later{color:var(--soft)}
+
+/* entries */
+.list{border-top:1px solid var(--rule)}
+.entry{display:grid;grid-template-columns:160px 1fr;gap:24px;padding:20px 0;border-bottom:1px solid var(--rule)}
+.entry .meta{font-family:var(--mono);font-size:12.5px;color:var(--soft);line-height:1.55}
+.entry .meta span{display:block}
+.entry h3{font-size:19px;line-height:1.3;margin-bottom:6px}
+.entry h3 a{color:inherit}
+.entry p,.entry li{font-size:16.5px}
+.entry p:last-child{margin-bottom:0}
+.entry ul{margin:0 0 12px;padding-left:20px}
+.entry li{margin-bottom:4px}
+.why{font-style:italic;color:var(--soft)}
+
+/* calc */
+.formula{display:flex;align-items:center;gap:10px;font-size:20px;margin:0 0 18px;flex-wrap:wrap}
+.formula .where{font-size:16px;color:var(--soft);margin-left:8px;display:inline-flex;align-items:center;gap:6px}
+.frac{display:inline-flex;flex-direction:column;align-items:center;line-height:1.25}
+.frac span:first-child{border-bottom:1.5px solid currentColor;padding:0 6px 2px}
+.frac span:last-child{padding:2px 6px 0}
+.ang{border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;padding:0 2px 0 1px;font-size:.7em;margin-left:1px}
+.inputs{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.inputs label{font-family:var(--mono);font-size:12px;color:var(--soft);display:block;margin-bottom:4px}
+.inputs input{width:100%;font:16px var(--mono);padding:9px;border:1px solid var(--rule);background:var(--bg);color:var(--ink);border-radius:0}
+.inputs input:focus{outline:2px solid var(--accent);outline-offset:-1px}
+.out{margin-top:18px;font-family:var(--mono);font-size:14.5px;display:grid;grid-template-columns:1fr auto;gap:6px 16px;align-items:baseline}
+.out b{font-weight:500;font-size:17px}
+.note{font-size:14px;color:var(--soft);margin:12px 0 0}
+
+/* education, projects, skills */
+.edu h3{font-size:20px;margin-bottom:4px}
+.courses{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:16px}
+.courses h4{font-family:var(--mono);font-weight:500;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--soft);margin-bottom:6px}
+.courses p{font-size:16px;margin:0}
+.mini{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:18px 28px}
+.mini li{font-weight:600;font-size:17px}
+.mini li span{font-family:var(--mono);font-weight:400;font-size:12px;color:var(--soft);margin-left:6px}
+.mini li p{font-weight:400;font-size:15.5px;margin:3px 0 0}
+.skills{display:grid;grid-template-columns:150px 1fr;gap:10px 20px;margin:0;font-size:16.5px}
+.skills dt{font-family:var(--mono);font-size:12.5px;color:var(--soft);padding-top:3px;text-transform:uppercase;letter-spacing:.06em}
+.skills dd{margin:0}
+.contact ul{padding-left:20px;margin:0 0 16px}
+.contact li{margin-bottom:6px}
+footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-family:var(--mono);font-size:12.5px;color:var(--soft)}
+
+@media (max-width:700px){
+  body{font-size:17px}
+  .tl{--w:58px}
+  .tl li{gap:30px}
+  .entry{grid-template-columns:1fr;gap:6px}
+  .entry .meta span{display:inline}
+  .entry .meta span+span::before{content:" \00b7 "}
+  .inputs,.courses,.mini{grid-template-columns:1fr}
+  .skills{grid-template-columns:1fr;gap:2px}
+  .skills dd{margin-bottom:12px}
+  td.m{padding-right:8px}
+}
+@media print{.calc{display:none}}
+
+:root{--bg:#fdfdf8;--bg2:#fdfdf8;--ink:#20242c;--soft:#5f6570;--rule:#cfd6e2;--line:#1f3a93;--accent:#1f3a93;--pass:#23703f;--red:#c8403a;
+--body:"Spectral",Georgia,serif;--mono:"Space Mono",ui-monospace,monospace;--hand:"Caveat",cursive}
+body{background-color:var(--bg);
+background-image:linear-gradient(#e4ebf5 1px,transparent 1px),linear-gradient(90deg,#e4ebf5 1px,transparent 1px);
+background-size:24px 24px}
+.page{max-width:860px;margin:0 auto;padding:56px 28px 80px 96px;position:relative;background:transparent}
+.page::before{content:"";position:absolute;left:62px;top:0;bottom:0;width:2px;background:rgba(200,64,58,.55)}
+.kicker{font-family:var(--mono);font-size:12px;color:var(--soft)}
+h1{font-size:56px;font-weight:600;line-height:1;letter-spacing:-.02em;margin-bottom:12px}
+h1::after{content:"";display:block;width:220px;height:10px;margin-top:6px;
+background:linear-gradient(90deg,var(--accent),var(--accent)) no-repeat;background-size:100% 3px;background-position:0 50%;transform:rotate(-1.2deg);opacity:.75}
+.tagline{font-size:20px;max-width:620px}
+.links{font-family:var(--mono);font-size:13px;margin-top:18px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:30px}
+.stat{background:#fff;border:1.5px solid var(--ink);padding:12px 14px;box-shadow:3px 3px 0 var(--ink)}
+.stat b{font-family:var(--mono);font-size:20px;font-weight:700}
+.stat span{font-size:14px;color:var(--soft)}
+.stat.ok{background:#eef7ef}.stat.ok b{color:var(--pass)}
+.stat.up b{color:var(--accent)}
+section{margin-top:62px}
+h2{font-family:var(--mono);font-weight:700;font-size:15px;text-transform:uppercase;letter-spacing:.06em;margin-bottom:18px}
+h2 .n{position:absolute;left:18px;font-size:13px;color:var(--red);font-weight:400}
+.list{border-top:1.5px solid var(--ink)}
+.entry{border-bottom:1px dashed #aab4c4;background:rgba(253,253,248,.85)}
+.why{font-family:var(--hand);font-style:normal;font-size:23px;line-height:1.2;color:var(--accent)}
+.entry.feature h3::before{content:"\2605 ";color:var(--red)}
+.calc{background:#fff;border:1.5px solid var(--ink);box-shadow:5px 5px 0 var(--ink);padding:24px}
+.note{font-family:var(--hand);font-size:22px;color:var(--accent)}
+table,.edu,.mini,.skills,.contact,.tl{background:rgba(253,253,248,.85)}
+footer{margin-top:70px;padding-top:14px;border-top:1.5px solid var(--ink)}
+@media (max-width:700px){.page{padding:40px 16px 64px 44px}.page::before{left:28px}h2 .n{left:4px;font-size:11px}
+h1{font-size:40px}h1::after{width:160px}.stats{grid-template-columns:1fr 1fr}.calc{padding:16px;box-shadow:3px 3px 0 var(--ink)}}
+</style>
+</head>
+<body>
+<div class="page">
+<div class="side">
+  <header class="top">
+    <p class="kicker">Kirksville, Missouri &middot; Open to relocating anywhere in the US</p>
+    <h1>Anup Rijal</h1>
+    <p class="tagline">Computer Science and Data Science student, moving into actuarial work. I came to it late. I'm closing the gap one exam at a time.</p>
+    <nav class="links">
+      <a href="mailto:anup.rijal247@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/anup-rijal-996ba5287/">LinkedIn</a>
+      <a href="https://scholar.google.com/citations?user=kbW6qwIAAAAJ&amp;hl=en">Google Scholar</a>
+    </nav>
+  </header>
+  <div class="stats">
+    <div class="stat ok"><b>Exam P</b><span>Passed &middot; Sep 2026</span></div>
+    <div class="stat up"><b>Exam FM</b><span>Sitting &middot; Dec 2026</span></div>
+    <div class="stat"><b>3.75</b><span>GPA &middot; dual B.S.</span></div>
+    <div class="stat"><b>2 + 2</b><span>Papers published + in progress</span></div>
+  </div>
+</div>
+
+<main>
+  <section id="contact" class="contact">
+    <h2><span class="n">01</span>What I'm looking for</h2>
+    <ul>
+      <li>Actuarial analyst or actuarial assistant roles, entry level.</li>
+      <li>Actuarial development programs (ADP) or rotational programs.</li>
+      <li>Actuarial internships open to graduating seniors or recent graduates.</li>
+      <li>Available from December 2026. I'll keep sitting exams.</li>
+      <li>Anywhere in the US. I'll move.</li>
+    </ul>
+    <p class="reach">Reach me at <a href="mailto:anup.rijal247@gmail.com">anup.rijal247@gmail.com</a> or <a href="tel:+16602805153">660-280-5153</a>.</p>
+  </section>
+  <section id="about" class="lead">
+    <h2><span class="n">02</span>The honest version</h2>
+    <p>I spent most of college on computer science and machine learning. I published papers on neural networks. I did not do an actuarial internship, because I didn't know I wanted this until my senior year.</p>
+    <p>My research kept pulling me toward risk. My latest study looks at what happens to confidence intervals when the data is heavy-tailed. That is what insurance losses look like. I wanted to work where that question has a real price on it.</p>
+    <p>So I turned to the exams. I passed Exam P in September 2026, at the start of my final semester. Now I study for FM around my shifts at the campus IT desk, and I sit for it in December.</p>
+    <p>I know I'm behind people who planned this from freshman year. What I bring is a strong programming and statistics background, real research habits, and proof that I keep going when it gets hard.</p>
+  </section>
+
+  <section id="path">
+    <h2><span class="n">03</span>Timeline</h2>
+    <ol class="tl">
+      <li><time>Aug 2022</time><div>Started B.S. Computer Science and B.S. Data Science at Truman State</div></li>
+      <li><time>Mar 2023</time><div>Joined the IT Service Center<small>Still there. 5,000+ students, parents and faculty helped.</small></div></li>
+      <li><time>Apr 2023</time><div>Peer tutor for Calculus and C++</div></li>
+      <li><time>Aug 2024</time><div>Project Lead, Google Developer Group</div></li>
+      <li><time>Jun 2025</time><div>First paper published, IEEE ICCIT</div></li>
+      <li><time>Jul 2025</time><div>Second paper published, FLAIRS-38</div></li>
+      <li><time>Apr 2026</time><div>Presented stock price research at Truman's Student Research Conference</div></li>
+      <li><time>Aug 2026</time><div>Started flight delay research</div></li>
+      <li class="big"><time>Sep 2026</time><div><b>Passed SOA Exam P</b></div></li>
+      <li><time>Oct 2026</time><div>AIG Actuarial Analyst Virtual Job Simulation</div></li>
+      <li class="next"><time>Dec 2026</time><div>Sit for Exam FM. Graduate.</div></li>
+    </ol>
+  </section>
+
+  <section id="exams">
+    <h2><span class="n">04</span>Exams</h2>
+    <table>
+      <thead><tr><th>Exam</th><th>Subject</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td class="m">P</td><td>Probability</td><td class="ok">Passed, Sep 2026</td></tr>
+        <tr><td class="m">FM</td><td>Financial Mathematics</td><td class="up">Sitting Dec 2026</td></tr>
+        <tr><td class="m">Next</td><td>Long-term or short-term track, depending on where I land</td><td class="later">2027</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="research">
+    <h2><span class="n">05</span>Research</h2>
+    <div class="list">
+      <article class="entry feature">
+        <div class="meta"><span>In preparation</span><span>Working paper</span></div>
+        <div class="body">
+          <h3>A Monte Carlo Evaluation of Bootstrap Confidence Interval Coverage</h3>
+          <p>I ran 840,000 simulations to compare four ways of building a confidence interval: Percentile, BCa, Studentized bootstrap and the classical t-interval. I tested them across six distributions, four sample sizes, and both the mean and the median.</p>
+          <ul>
+            <li>On heavy-tailed data the intervals miss far more often than they should. For Pareto data at n = 20, a 95% interval covered the true value only 76.4% of the time.</li>
+            <li>The median holds up where the mean fails.</li>
+            <li>BCa was the most stable bootstrap method across settings.</li>
+          </ul>
+          <p class="why">Why it matters here: insurance claim sizes are heavy-tailed. This is the closest my work has come to an actuarial question.</p>
+        </div>
+      </article>
+      <article class="entry">
+        <div class="meta"><span>Aug 2026 – now</span><span>Undergraduate research</span></div>
+        <div class="body">
+          <h3>Flight Delay Prediction and Passenger Impact</h3>
+          <p>I'm joining BTS flight records with NOAA weather data. The goal is to predict delays and estimate what each delay costs passengers.</p>
+          <p class="why">Same shape as a pricing problem: how often does a bad event happen, and how much does it cost when it does.</p>
+        </div>
+      </article>
+      <article class="entry">
+        <div class="meta"><span>Apr 2026</span><span>Student Research Conference</span></div>
+        <div class="body">
+          <h3>Stock Price Prediction with Time Series and News Sentiment</h3>
+          <p>I combined time-series models with news sentiment to forecast market moves, and presented it at Truman.</p>
+        </div>
+      </article>
+      <article class="entry">
+        <div class="meta"><span>Major revision</span><span><i>Array</i> (Elsevier)</span></div>
+        <div class="body">
+          <h3>When Spatial Attention Fails</h3>
+          <p>The first systematic test of attention layers (SE, ECA, CBAM) in very small CNNs. 160 training runs across 4 architectures, 3 resolutions and 2 datasets.</p>
+          <p>CBAM made one family of models worse (&minus;0.37%, p = 0.017). I also proposed a new metric, Overhead-Adjusted Accuracy, that weighs accuracy against the extra size a layer adds.</p>
+        </div>
+      </article>
+      <article class="entry">
+        <div class="meta"><span>Jul 2025</span><span>FLAIRS-38 &middot; peer-reviewed</span></div>
+        <div class="body">
+          <h3><a href="https://doi.org/10.32473/flairs.38.1.138802">Spatial and Channel Integration with SENet</a></h3>
+          <p>A small model that combines two kinds of attention. 99.76% accuracy with 0.58M parameters on lung image and malaria datasets.</p>
+        </div>
+      </article>
+      <article class="entry">
+        <div class="meta"><span>Jun 2025</span><span>IEEE ICCIT &middot; peer-reviewed</span></div>
+        <div class="body">
+          <h3><a href="https://ieeexplore.ieee.org/abstract/document/11022584">An Efficient and Effective Network Is All You Need</a></h3>
+          <p>A lightweight network for brain tumor detection. 99.39% accuracy with only 0.314M parameters.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="experience">
+    <h2><span class="n">06</span>Experience</h2>
+    <div class="list">
+      <article class="entry">
+        <div class="meta"><span>Mar 2023 – now</span><span>Truman State</span></div>
+        <div class="body">
+          <h3>Customer Representative, IT Service Center</h3>
+          <p>I've helped more than 5,000 students, parents and faculty, with 95% of problems solved on first contact. I document every case so follow-ups don't start from zero.</p>
+          <p class="why">Most of the job is explaining something technical to someone stressed and in a hurry. Actuaries do that too.</p>
+        </div>
+      </article>
+      <article class="entry">
+        <div class="meta"><span>Oct 2026</span><span>AIG &middot; virtual</span></div>
+        <div class="body">
+          <h3>Actuarial Analyst Virtual Job Simulation</h3>
+          <p>Practice tasks on what an actuarial analyst does day to day, plus a marine liability case study.</p>
+        </div>
+      </article>
+      <article class="entry">
+        <div class="meta"><span>Aug 2024 – Jan 2025</span><span>Google Developer Group</span></div>
+        <div class="body">
+          <h3>Project Lead</h3>
+          <p>I led a student team that built a portfolio site for a CS professor and a club management system. I set roles and worked with faculty on what they actually needed.</p>
+        </div>
+      </article>
+      <article class="entry">
+        <div class="meta"><span>Apr 2023 – Jan 2024</span><span>Truman State</span></div>
+        <div class="body">
+          <h3>Peer Tutor, Calculus and C++</h3>
+          <p>Weekly drop-in sessions. I kept notes on each student so the next session picked up where we stopped.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="notes">
+    <h2><span class="n">07</span>From my FM notes</h2>
+    <div class="calc">
+      <div class="formula">
+        <span>a<span class="ang">n</span></span><span>=</span>
+        <span class="frac"><span>1 &minus; v<sup>n</sup></span><span>i</span></span>
+        <span class="where">where&nbsp; v = <span class="frac"><span>1</span><span>1 + i</span></span></span>
+      </div>
+      <div class="inputs">
+        <div><label for="pmt">Payment per period</label><input id="pmt" type="number" value="1000" step="any"></div>
+        <div><label for="rate">Effective rate i (%)</label><input id="rate" type="number" value="5" step="any"></div>
+        <div><label for="n">Periods n</label><input id="n" type="number" value="10" step="1" min="1"></div>
+      </div>
+      <div class="out">
+        <span>Annuity-immediate, PV</span><b id="pvi">–</b>
+        <span>Annuity-due, PV</span><b id="pvd">–</b>
+        <span>Accumulated value at n</span><b id="av">–</b>
+      </div>
+      <p class="note">A small tool I wrote while studying. Change the numbers and it updates.</p>
+    </div>
+  </section>
+
+  <section id="education">
+    <h2><span class="n">08</span>Education</h2>
+    <div class="edu">
+      <h3>Truman State University</h3>
+      <p>B.S. Computer Science and B.S. Data Science (dual degree) &middot; Aug 2022 – Dec 2026 &middot; GPA 3.75</p>
+      <div class="courses">
+        <div><h4>Math and statistics</h4><p>Probability and Statistics, Linear Algebra, Multivariable Calculus, Real Analysis, Numerical Methods, Regression Analysis, Predictive Modeling</p></div>
+        <div><h4>Computing and data</h4><p>Machine Learning, Artificial Intelligence, Data Mining, Data Structures and Algorithms, Database Systems, Data Visualization</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2><span class="n">09</span>Other things I've built</h2>
+    <ul class="mini">
+      <li><a href="https://github.com/AnupRijal/Movie-Recommender-System">Movie Recommendation System</a> <span>2024 &middot; Python</span><p>Collaborative and content-based filtering on TMDB data.</p></li>
+      <li><a href="https://github.com/AnupRijal/NoHungerZone">NoHungerZone</a> <span>2024 &middot; MERN, Firebase</span><p>Connects food donors with NGOs, with live pickup updates.</p></li>
+      <li><a href="https://devpost.com/software/deceptiguard">Deceptiguard</a> <span>2024 &middot; TensorFlow</span><p>Real-time deepfake detection, 95% accuracy, built to run on low-end hardware.</p></li>
+      <li>Truman Table Tennis Club <span>Co-founder</span><p>Started it with friends. Still running.</p></li>
+    </ul>
+  </section>
+
+  <section id="skills">
+    <h2><span class="n">10</span>Skills and certificates</h2>
+    <dl class="skills">
+      <dt>Statistics</dt><dd>Regression, Monte Carlo simulation, bootstrap methods, classification, clustering</dd>
+      <dt>Programming</dt><dd>Python, R, SQL, Java, C, C++, JavaScript</dd>
+      <dt>Data and tools</dt><dd>Excel, Power BI, Git, Linux, AWS, Azure, LaTeX, PyTorch, TensorFlow</dd>
+      <dt>Certificates</dt><dd>Data Analysis with R (Google) &middot; Python for Data Science, AI and Development (IBM) &middot; CS50 (Harvard) &middot; Data Structures and Algorithms (Udemy)</dd>
+    </dl>
+  </section>
+
+
+  <footer><span>Anup Rijal</span><span>Last updated October 2026</span></footer>
+</main>
+</div>
+
+<script>
+const fmt=new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',maximumFractionDigits:2});
+function calc(){const P=parseFloat(pmt.value),i=parseFloat(rate.value)/100,n=parseInt(document.getElementById('n').value,10);
+const ids=['pvi','pvd','av'];if(!isFinite(P)||!isFinite(i)||!isFinite(n)||n<1||i<=-1){ids.forEach(d=>document.getElementById(d).textContent='–');return}
+let an,sn;if(Math.abs(i)<1e-12){an=n;sn=n}else{const v=1/(1+i);an=(1-Math.pow(v,n))/i;sn=(Math.pow(1+i,n)-1)/i}
+pvi.textContent=fmt.format(P*an);pvd.textContent=fmt.format(P*an*(1+i));av.textContent=fmt.format(P*sn)}
+['pmt','rate','n'].forEach(d=>document.getElementById(d).addEventListener('input',calc));calc();
+</script>
+</body>
+</html>
